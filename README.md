@@ -2,7 +2,7 @@
 
 ## Project Title
 
-READ ME!!!!!
+PLANNING POKER BABY!! 
 
 ## Description
 
