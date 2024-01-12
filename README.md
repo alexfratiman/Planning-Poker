@@ -29,5 +29,5 @@ OH BOY IMMA DESCRIPE THE HELL OUT OF THIS
 
 ## License
 
-[Specify the license for your project. For example, MIT License, Apache License, etc.]
+THE HIGHT ROLLERS INNIT BRUV! TRADEMARKED 4EVA!!
 
