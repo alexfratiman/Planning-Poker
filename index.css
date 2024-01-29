@@ -192,7 +192,7 @@ article {
     height: 65vh;
   }
 
-  .item {
+.item {
     background-color: #1EAAFC;
     background-image: linear-gradient(130deg, #00008f 0%, #1EAAFC 85%, #3EDFD7 100%);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -201,5 +201,11 @@ article {
     border: 6px solid #171717;
     justify-content: center;
     padding-top: 4rem;
+    cursor: pointer;
   }
-  
+
+.item.selected {
+    background-color: red; 
+    color: white;
+    border: 6px solid darkred; 
+}
