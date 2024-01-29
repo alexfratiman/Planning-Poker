@@ -78,8 +78,9 @@ body {
 
 article {
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
     padding: 20px;
+    
 }
 
 #about, #link-about {
@@ -87,13 +88,15 @@ article {
     justify-content: center;
     margin: 0 auto;
     width: 50%;
-    max-width: 500px;
+    max-width: 600px;
     margin-top: 150px;
     background-color: #00008f;
     color: white;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 143, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     transform: scale(1.05);
+    overflow-y: auto;
+    max-height: 400px;
 }
 
 #flex {
