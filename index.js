@@ -1,5 +1,3 @@
-console.log("Script loaded");
-
 let selectedCard;
 
 function selectCard(card) {
@@ -11,3 +9,18 @@ function selectCard(card) {
 
     selectedCard = card.innerText;
 }
+
+// document.getElementById('generate-link').addEventListener('click', () => {
+//     console.log("TESTING");
+
+//     var currentUrl = window.location.href;
+
+//     var linkElement = document.createElement('a');
+//     linkElement.href = currentUrl;
+//     linkElement.textContent = 'Share this page'; 
+//     linkElement.setAttribute('target', '_blank');
+
+//     var container = document.getElementById('generate-link');
+//     container.parentNode.replaceChild(linkElement, container);
+   
+// });

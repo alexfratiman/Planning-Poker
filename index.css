@@ -26,6 +26,8 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #contact, #link-contact {
@@ -88,15 +90,15 @@ article {
     justify-content: center;
     margin: 0 auto;
     width: 50%;
-    max-width: 600px;
-    margin-top: 150px;
+    max-width: 700px;
+    margin-top: 100px;
     background-color: #00008f;
     color: white;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 143, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     transform: scale(1.05);
     overflow-y: auto;
-    max-height: 400px;
+    max-height: 300px;
 }
 
 #flex {
@@ -112,6 +114,8 @@ article {
     flex-wrap: nowrap;
     flex-direction: column;
     width: 40%;
+    justify-content: center;
+    align-items: center;
 }
 
 #middle-flex {
@@ -120,6 +124,7 @@ article {
     flex-direction: column;
     width: 20%;
     align-items: center;
+    padding: 0%;
 }
 
 #select-header {
@@ -127,11 +132,13 @@ article {
     color: white;
     text-align: center;
     margin-top: 25px;
-    margin-left: 25px;
     padding: 10px;
     font-size: 20px;
     font-weight: 500;
-    width: 90%
+    width: 90%;
+    border-radius: 125px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    
 }
 
 #card-container {
@@ -139,11 +146,12 @@ article {
     color: #00008f;
     text-align: center;
     margin-top: 25px;
-    margin-left: 25px;
+    justify-content: left;
     padding: 10px;
     font-size: 20px;
     font-weight: 500;
     width: 90%;
+    
 }
 
 #results-header {
@@ -154,7 +162,9 @@ article {
     padding: 10px;
     font-size: 20px;
     font-weight: 500;
-    width: 90%
+    width: 90%;
+    border-radius: 125px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
 }
 
 #results-container {
@@ -171,16 +181,23 @@ article {
 #submit-button {
     background-color: #D9D9D9;
     color: #00008f;
-    border: 0;
     justify-content: center;
-    margin-top: 400px;
-    width: 20%;
-    max-width: 200px;
-    padding: 7px;
+    margin-top: 42vh;
     border-radius: 125px;
     box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     transform: scale(1.05);
+    font-weight: 750;
+    width: 65%;
+    height: 5%;
+    border: 1px solid black;
+    cursor: pointer;
 }
+
+#submit-button:hover {
+    color: #00008f;
+    border: 2px solid #00008f;
+}
+
 
 .container {
     display: grid;
@@ -202,10 +219,79 @@ article {
     justify-content: center;
     padding-top: 4rem;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
   }
 
 .item.selected {
-    background-color: red; 
     color: white;
     border: 6px solid darkred; 
+    transition: border 0.3s ease-in-out, color 0.1s ease-in-out;
+}
+
+#results-container {
+    height: 65vh;
+}
+
+#yes-no {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+#yes {
+    padding-right:30px;
+    float: left;
+    color: grey;
+}
+#no {
+    padding-left: 30px;
+    float: right;
+    color: grey;
+}
+
+#name-vote-box {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+#vote-name {
+    padding-right:30px;
+    float: left;
+}
+#vote {
+    padding-left: 30px;
+    float: right;
+}
+
+#ave-vote-box{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+#ave-vote {
+    padding-right:30px;
+    float: left;
+}
+#ave-number {
+    padding-left: 30px;
+    float: right;
+}
+
+#invite-link {
+    width: 65%;
+    margin-top: 120px;
+    text-align: center;
+    justify-content: center;
+    word-wrap: break-word;
 }
