@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+    
 </head>
 
 <body>
@@ -22,17 +24,32 @@
     <div id="select-header">
       <header>Select a card</header>
     </div>
-
+    
     <div id="card-container">
-    <h2>Cards here</h2>
+      <div class="container">
+        <div class="item item1" onclick="selectCard(this)">1</div>
+        <div class="item item2" onclick="selectCard(this)">2</div>
+        <div class="item item3" onclick="selectCard(this)">3</div>
+        <div class="item item4" onclick="selectCard(this)">5</div>
+        <div class="item item5" onclick="selectCard(this)">8</div>
+        <div class="item item6" onclick="selectCard(this)">13</div>
+        <div class="item item7" onclick="selectCard(this)">21</div>
+        <div class="item item8" onclick="selectCard(this)">34</div>
+        <div class="item item9" onclick="selectCard(this)">55</div>
+      </div>
     </div>
   
   </div>
 
   <div id="middle-flex">
 
-    <button id="submit-button">Press me</button>
+    <button id="submit-button">Submit</button>
+    <div id="invite-link">
+      <p>Invite Link</p>
+    <a href="#">http://127.0.0.1:5500/MainPage.html#</a>
 
+    </div>
+    
   </div>
 
   <div class="flex-container">
@@ -42,7 +59,22 @@
     </div>
 
     <div id="results-container">
-      <h2>Consensus?</h2>
+      <h2>Consensus Reached?</h2>
+      <table id="yes-no">
+        <tr>
+          <th id="yes">Yes</th>
+          <th id="no">No</th>
+        </tr>
+      </table>
+      <table id="name-vote-box">
+        <tr>
+          <th id="vote-name">Name</th>
+          <th id="vote">Vote</th>
+        </tr>
+        <tr>
+          <td id="ave-vote">Average Vote</td>
+          <td id="ave-number">101</td>
+        </tr>
     </div>
     
   </div>

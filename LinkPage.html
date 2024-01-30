@@ -16,12 +16,15 @@
 
     <div id="link-entername">
     <form>
-            <input id="link-name" type="text" placeholder="Enter name">
+        <input id="name" type="text" placeholder="Enter name">
+        <div id="start">
+            <input type="button" id="start-button" onclick="setUsername();" value="GO!"></input>
+        </div>
     </form>
     </div>
 
-    <div id="link-start">
-        <button type="button" id="join-button">Join game</button>
+    <div>
+        <p class="hidden" id="usernameError">Please enter a name and ensure it is no longer than 12 characters </p>
     </div>
 
     <div id="link-about">
@@ -38,5 +41,7 @@
         <div id="link-contact">Contact Us</div>
     </footer>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
