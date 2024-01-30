@@ -8,6 +8,22 @@ function selectCard(card) {
     card.classList.add('selected');
 
     selectedCard = card.innerText;
+};
+
+function setUsername(form) {
+    let username = document.getElementById('name').value
+    let pass = false
+    for (let x = 0; x < username.length; x++) {
+        if (username.charAt(x) !== " ") {
+            pass = true;
+        };
+    };
+    if (1 > username.length || username.length > 12 || pass == false) {
+        document.getElementById("usernameError").style.visibility = "visible";
+    } else {
+        sessionStorage.setItem("username", `${username}`);
+        location.assign("MainPage.html");
+    }
 }
 
 // document.getElementById('generate-link').addEventListener('click', () => {

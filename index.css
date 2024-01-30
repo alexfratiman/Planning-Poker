@@ -67,7 +67,6 @@ body {
 #join-button, #start-button {
     background-color: #D9D9D9;
     color: #00008f;
-    border: 0;
     justify-content: center;
     margin: 0 auto;
     width: 20%;
@@ -76,6 +75,8 @@ body {
     border-radius: 125px;
     box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     transform: scale(1.05);
+    border: 1px solid black;
+    cursor: pointer;
 }
 
 article {
@@ -91,7 +92,7 @@ article {
     margin: 0 auto;
     width: 50%;
     max-width: 700px;
-    margin-top: 100px;
+    margin-top: 80px;
     background-color: #00008f;
     color: white;
     border-radius: 25px;
@@ -193,9 +194,14 @@ article {
     cursor: pointer;
 }
 
-#submit-button:hover {
-    color: #00008f;
-    border: 2px solid #00008f;
+#submit-button:hover, #join-button:hover, #start-button:hover {
+    border-color: #00008f;
+}
+
+.hidden{
+    color: #c91432;
+    text-align: center;
+    visibility: hidden;
 }
 
 
