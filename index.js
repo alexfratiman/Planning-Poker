@@ -26,6 +26,34 @@ function setUsername(form) {
     }
 }
 
+function checkConsensus(arrayOfObjects) {
+    const firstVote = arrayOfObjects[0].vote;
+    // takes the first object in the array and selects the value in the vote property of that object's, and saves it in a firstvote variable, that we will compare the following votes with for consensus yes/no
+    const consensus = arrayOfObjects.every((object) => object.vote === firstVote);
+    // every() returns true if every named element in the array, this time each of the objects' vote attribute, matches the criteria, this time being equal to the first vote
+    consensus ? document.getElementById("yes").style.color = "green" : document.getElementById("no").style.color = "red";
+    consensus ? document.getElementById("yes").style.border = "3px solid green" : document.getElementById("no").style.border = "3px solid red";
+
+}
+
+// example json:
+// votes = [{"name": "john",
+//             "vote": 13},
+//         {"name": "alex",
+//         "vote": 13},
+//         {"name": "jade",
+//         "vote": 2}]
+
+function calculateAverage (arrayOfObjects) {
+    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0)
+    // the accumulator at the next run instance gets assigned whatever is returned from the previous run time; it's not a consistent variable
+    // the 0, initialValue, acts like a value from the previous run that's gonna be used for the first run
+    // the reduce function gets us from many to less; it reduces an array
+    const numOfVotes = arrayOfObjects.length
+    const aveVote = sum / numOfVotes
+    document.getElementById("ave-number").innerHTML = aveVote.toFixed(2)
+}
+
 // document.getElementById('generate-link').addEventListener('click', () => {
 //     console.log("TESTING");
 
