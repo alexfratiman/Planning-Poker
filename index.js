@@ -68,3 +68,14 @@ function calculateAverage (arrayOfObjects) {
 //     container.parentNode.replaceChild(linkElement, container);
    
 // });
+
+//CONTACT US BUTTON FUNCTION
+function openEmailClient() {
+    var emailAddress = 'andrew.jarrett@axahealth.co.uk, alex.fratiman@axahealth.co.uk, alex.kennedy@axahealth.co.uk';
+    var subject = 'Inquiry';
+    var body = 'Dear Team,\n\nI have the following inquiry:\n\n';
+    var mailtoLink = 'mailto:' + emailAddress + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailtoLink;
+    console.log("Email client opened");
+  }
+  
