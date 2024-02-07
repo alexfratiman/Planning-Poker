@@ -78,4 +78,18 @@ function openEmailClient() {
     window.location.href = mailtoLink;
     console.log("Email client opened");
   }
-  
+
+// Function to generate a random alphanumeric ID
+function generateUniqueID() {
+    return Math.random().toString(36).substring(2, 10);
+}
+
+// Function to generate and display the invite link
+function generateInviteLink() {
+    const gameID = generateUniqueID();
+    const gameLink = window.location.origin + '/game.html?id=' + gameID;
+    document.getElementById('game-link').value = gameLink;
+}
+
+// Generate the invite link when the page is loaded
+window.onload = generateInviteLink;
