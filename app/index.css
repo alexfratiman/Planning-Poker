@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    margin: 0px;
+}
+
+#header-container, #link-header-container {
+    background-color: #00008f;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 32px;
+    font-weight: 1000;
+}
+
+#footer-container, #link-footer-container {
+    background-color: #00008f;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    font-weight: 1000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#contact, #link-contact {
+    background-color: #D9D9D9;
+    color: #00008f;
+    width: 30%;
+    margin: auto;
+    border-radius: 125px;
+    cursor: pointer;
+}
+
+#entername, #link-entername {
+    text-align: center;
+    margin-top: 200px;
+}
+
+#name, #link-name {
+    color: white;
+    background-color: #00008f;
+    border: 0;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 500px;
+    padding: 7px;
+    border-radius: 125px;
+}
+
+::placeholder {
+    text-align: center;
+}
+
+#start, #link-start {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#join-button, #start-button {
+    background-color: #D9D9D9;
+    color: #00008f;
+    justify-content: center;
+    margin: 0 auto;
+    width: 20%;
+    max-width: 200px;
+    padding: 7px;
+    border-radius: 125px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+article {
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    
+}
+
+#about, #link-about {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 700px;
+    margin-top: 80px;
+    background-color: #00008f;
+    color: white;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 143, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+#flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+#middle-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    padding: 0%;
+}
+
+#select-header {
+    background-color: #00008f;
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 90%;
+    border-radius: 125px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    
+}
+
+#card-container {
+    background-color: #D9D9D9;
+    color: #00008f;
+    text-align: center;
+    margin-top: 25px;
+    justify-content: left;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 90%;
+    
+}
+
+#results-header {
+    background-color: #00008f;
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 90%;
+    border-radius: 125px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+}
+
+#results-container {
+    background-color: #D9D9D9;
+    color: #00008f;
+    text-align: center;
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 90%;
+}
+
+#submit-button {
+    background-color: #D9D9D9;
+    color: #00008f;
+    justify-content: center;
+    margin-top: 42vh;
+    border-radius: 125px;
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+    font-weight: 750;
+    width: 65%;
+    height: 5%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#submit-button:hover, #join-button:hover, #start-button:hover {
+    border-color: #00008f;
+}
+
+.hidden{
+    color: #c91432;
+    text-align: center;
+    visibility: hidden;
+}
+
+
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    height: 65vh;
+  }
+
+.item {
+    background-color: #1EAAFC;
+    background-image: linear-gradient(130deg, #00008f 0%, #1EAAFC 85%, #3EDFD7 100%);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    color: #fff;
+    border-radius: 4px;
+    border: 6px solid #171717;
+    justify-content: center;
+    padding-top: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+.item.selected {
+    color: white;
+    border: 6px solid darkred; 
+    transition: border 0.3s ease-in-out, color 0.1s ease-in-out;
+}
+
+#results-container {
+    height: 65vh;
+}
+
+#yes-no {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+#yes {
+    padding-right:20px;
+    padding-left:20px;
+    float: left;
+    color: grey;
+    border: 3px solid #D9D9D9;
+    border-radius: 125px;
+}
+#no {
+    padding-left: 20px;
+    padding-right: 20px;
+    float: right;
+    color: grey;
+    border: 3px solid #D9D9D9;
+    border-radius: 125px;
+}
+
+#name-vote-box{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+#vote-name {
+    padding-right:30px;
+    float: left;
+}
+#vote {
+    padding-left: 30px;
+    float: right;
+}
+
+#players {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+}
+
+#username-result {
+    padding-right:30px;
+    float: left;
+}
+#vote-result {
+    padding-left: 30px;
+    float: right;
+}
+
+#ave-vote-box{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+#ave-vote {
+    padding-right:30px;
+    float: left;
+}
+#ave-number {
+    padding-left: 30px;
+    float: right;
+}
+
+#invite-link {
+    width: 65%;
+    margin-top: 120px;
+    text-align: center;
+    justify-content: center;
+    word-wrap: break-word;
+}
