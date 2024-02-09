@@ -265,7 +265,7 @@ article {
     border-radius: 125px;
 }
 
-#name-vote-box {
+#name-vote-box{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -279,6 +279,24 @@ article {
     float: left;
 }
 #vote {
+    padding-left: 30px;
+    float: right;
+}
+
+#players {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+}
+
+#username-result {
+    padding-right:30px;
+    float: left;
+}
+#vote-result {
     padding-left: 30px;
     float: right;
 }
