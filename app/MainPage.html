@@ -25,15 +25,15 @@
     
     <div id="card-container">
       <div class="container">
-        <div class="item item1" onclick="selectCard(this)">1</div>
-        <div class="item item2" onclick="selectCard(this)">2</div>
-        <div class="item item3" onclick="selectCard(this)">3</div>
-        <div class="item item4" onclick="selectCard(this)">5</div>
-        <div class="item item5" onclick="selectCard(this)">8</div>
-        <div class="item item6" onclick="selectCard(this)">13</div>
-        <div class="item item7" onclick="selectCard(this)">21</div>
-        <div class="item item8" onclick="selectCard(this)">34</div>
-        <div class="item item9" onclick="selectCard(this)">55</div>
+        <div class="item item1" role="button" onclick="selectCard(this)">1</div>
+        <div class="item item2" role="button" onclick="selectCard(this)">2</div>
+        <div class="item item3" role="button" onclick="selectCard(this)">3</div>
+        <div class="item item4" role="button" onclick="selectCard(this)">5</div>
+        <div class="item item5" role="button" onclick="selectCard(this)">8</div>
+        <div class="item item6" role="button" onclick="selectCard(this)">13</div>
+        <div class="item item7" role="button" onclick="selectCard(this)">21</div>
+        <div class="item item8" role="button" onclick="selectCard(this)">34</div>
+        <div class="item item9" role="button" onclick="selectCard(this)">55</div>
       </div>
     </div>
   
@@ -41,7 +41,7 @@
 
   <div id="middle-flex">
 
-    <button id="submit-button">Submit</button>
+    <button id="submit-button" role="button">Submit</button>
     <div id="invite-link">
       <p>Invite Link</p>
       <input type="text" id="game-link" readonly>
@@ -82,7 +82,7 @@
 
   <div id="footer-container">
     <footer>
-        <div><button id="link-contact" onclick="openEmailClient()">Contact Us</button></div>
+        <div><button id="link-contact" role="button" onclick="openEmailClient()">Contact Us</button></div>
     </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js" integrity="sha512-skuhu6jj+sQnhLq1Txsack8VfnIrX8wL+MTFilYlFFT/NuLJm7eya7zOROs39Jy5cjASMEWqxLzijRVmKhsqWQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

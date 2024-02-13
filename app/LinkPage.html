@@ -14,9 +14,9 @@
         <header>Planning Poker</header>
     </div>
 
-    <div id="link-entername">
+    <div id="link-entername" role="form">
     <form>
-        <input id="name" type="text" placeholder="Enter name">
+        <input id="name" type="text" placeholder="Enter name" aria-describedby="usernameError">
         <div id="start">
             <input type="button" id="start-button" onclick="setUsername();" value="GO!"></input>
         </div>
@@ -27,7 +27,7 @@
         <p class="hidden" id="usernameError">Please enter a name and ensure it is no longer than 12 characters </p>
     </div>
 
-    <div id="link-about">
+    <div id="link-about" role="region">
         <article>
             <h3>About section</h3>
             <p>
