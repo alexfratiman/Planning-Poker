@@ -4,7 +4,7 @@ let selectedCard;
 
 function selectCard(card) {
     console.log("Card selected:", card.innerText);
-    const cards = document.querySelectorAll('.container .item');
+    const cards = document.querySelectorAll('#card-container .item');
     cards.forEach((c) => c.classList.remove('selected'));
 
     card.classList.add('selected');

@@ -24,7 +24,6 @@
     </div>
     
     <div id="card-container">
-      <div class="container">
         <div class="item item1" role="button" onclick="selectCard(this)">1</div>
         <div class="item item2" role="button" onclick="selectCard(this)">2</div>
         <div class="item item3" role="button" onclick="selectCard(this)">3</div>
@@ -34,7 +33,6 @@
         <div class="item item7" role="button" onclick="selectCard(this)">21</div>
         <div class="item item8" role="button" onclick="selectCard(this)">34</div>
         <div class="item item9" role="button" onclick="selectCard(this)">55</div>
-      </div>
     </div>
   
   </div>
@@ -49,13 +47,14 @@
     
   </div>
 
-  <div class="flex-container">
+  <div class="flex-container" id="flex-results">
 
     <div id="results-header">
       <header>Results</header>
     </div>
 
     <div id="results-container">
+
       <h2>Consensus Reached?</h2>
       <table id="yes-no">
         <tr>
@@ -73,9 +72,14 @@
           <td id="ave-vote">Average Vote</td>
           <td id="ave-number">101</td>
         </tr>
+        </table>
     </div>
     
   </div>
+
+  </div>
+
+  <div id="bottom-block">
 
   </div>
 
