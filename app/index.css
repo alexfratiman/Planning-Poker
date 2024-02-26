@@ -324,7 +324,7 @@ article {
 
 #invite-link {
     width: 65%;
-    margin-top: 10vmin;
+    margin: 5vmin;
     text-align: center;
     justify-content: center;
     word-wrap: break-word;
@@ -335,7 +335,7 @@ article {
         width: 100%;
     }
     #middle-flex {
-        margin-bottom: 15vmin;
+        margin: 15vmin;
     }
     #results-container {
         white-space: pre;
