@@ -117,3 +117,18 @@ socket.on('message', (data) => {
   document.getElementById(`player${counter}`).appendChild(username)
   document.getElementById(`player${counter}`).appendChild(vote)
 })
+
+// COPY INVITE LINK FUNCTION
+function copyLinkToClipboard() {
+    // Get the input element containing the link
+    var inputElement = document.getElementById("game-link");
+    
+    // Select the text inside the input element
+    inputElement.select();
+    
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+    
+    // feedback to the user
+    alert("Link copied to clipboard!");
+}
