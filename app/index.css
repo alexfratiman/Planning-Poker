@@ -335,7 +335,7 @@ article {
         width: 100%;
     }
     #middle-flex {
-        margin: 15vmin;
+        margin-bottom: 25vmin;
     }
     #results-container {
         white-space: pre;
