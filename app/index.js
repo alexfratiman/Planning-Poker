@@ -1,4 +1,4 @@
-const socket = io('ws://localhost:3500')
+const socket = io('ws://localhost:3500');
 
 let selectedCard;
 
@@ -11,17 +11,17 @@ function selectCard(card) {
 
     selectedCard = card.innerText;
 
-    socket.emit('message', `${sessionStorage.getItem("username")}:${card.innerText}`)
-};
+    socket.emit('message', `${sessionStorage.getItem("username")}:${card.innerText}`);
+}
 
 function setUsername(form) {
-    let username = document.getElementById('name').value
-    let pass = false
+    let username = document.getElementById('name').value;
+    let pass = false;
     for (let x = 0; x < username.length; x++) {
         if (username.charAt(x) !== " ") {
             pass = true;
-        };
-    };
+        }
+    }
     if (1 > username.length || username.length > 12 || pass == false) {
         document.getElementById("usernameError").style.visibility = "visible";
     } else {
@@ -38,9 +38,11 @@ function checkConsensus(arrayOfObjects) {
     consensus ? document.getElementById("yes").style.color = "green" : document.getElementById("no").style.color = "red";
     consensus ? document.getElementById("yes").style.border = "3px solid green" : document.getElementById("no").style.border = "3px solid red";
 
+    console.log("Consensus:", consensus); // Debugging: Log consensus value
+
 }
 
-// example json:
+// json:
 // votes = [{"name": "john",
 //             "vote": 13},
 //         {"name": "alex",
@@ -48,16 +50,17 @@ function checkConsensus(arrayOfObjects) {
 //         {"name": "jade",
 //         "vote": 2}]
 
-function calculateAverage (arrayOfObjects) {
-    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0)
-    // the accumulator at the next run instance gets assigned whatever is returned from the previous run time; it's not a consistent variable
-    // the 0, initialValue, acts like a value from the previous run that's gonna be used for the first run
-    // the reduce function gets us from many to less; it reduces an array
-    const numOfVotes = arrayOfObjects.length
-    const aveVote = sum / numOfVotes
-    document.getElementById("ave-number").innerHTML = aveVote.toFixed(2)
-}
+// function calculateAverage (arrayOfObjects) {
+//     const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0)
+//     // the accumulator at the next run instance gets assigned whatever is returned from the previous run time; it's not a consistent variable
+//     // the 0, initialValue, acts like a value from the previous run that's gonna be used for the first run
+//     // the reduce function gets us from many to less; it reduces an array
+//     const numOfVotes = arrayOfObjects.length
+//     const aveVote = sum / numOfVotes
+//     document.getElementById("ave-number").innerHTML = aveVote.toFixed(2)
+// }
 
+// calculateAverage(votes);
 // document.getElementById('generate-link').addEventListener('click', () => {
 //     console.log("TESTING");
 
@@ -116,19 +119,16 @@ socket.on('message', (data) => {
   document.getElementById('players').appendChild(player)
   document.getElementById(`player${counter}`).appendChild(username)
   document.getElementById(`player${counter}`).appendChild(vote)
+
+  console.log("Received message:", data);
 })
 
 // COPY INVITE LINK FUNCTION
 function copyLinkToClipboard() {
-    // Get the input element containing the link
     var inputElement = document.getElementById("game-link");
-    
-    // Select the text inside the input element
     inputElement.select();
-    
-    // Copy the selected text to the clipboard
     document.execCommand("copy");
-    
-    // feedback to the user
     alert("Link copied to clipboard!");
+
+    console.log("Link copied to clipboard:", inputElement.value);
 }
