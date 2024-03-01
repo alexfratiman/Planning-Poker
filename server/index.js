@@ -15,6 +15,10 @@ io.on('connection', socket => {
   socket.on('message', data => {
     io.emit('message', `${data}`)
   })
+
+  socket.on('submit vote', data => {
+    io.emit('submit vote', data)
+  })
 })
 
 httpServer.listen(3500, () => console.log('listening on port 5500'))

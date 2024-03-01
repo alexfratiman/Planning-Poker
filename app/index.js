@@ -14,6 +14,15 @@ function selectCard(card) {
     socket.emit('message', `${sessionStorage.getItem("username")}:${card.innerText}`);
 }
 
+function submitVote() {
+    if(selectedCard !== undefined) {
+        socket.emit('submit vote', {selectedCard: selectedCard});
+    }
+    else {
+        alert("Please select a card to submit!");
+    }
+}
+
 function setUsername(form) {
     let username = document.getElementById('name').value;
     let pass = false;
