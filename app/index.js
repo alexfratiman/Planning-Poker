@@ -136,3 +136,21 @@ function copyLinkToClipboard() {
 
     console.log("Link copied to clipboard:", inputElement.value);
 }
+
+//Waiting for players -- to be contained within submit button js
+//let allReady = true
+//let checking = true
+
+// function readinessCheck() {
+//     for (let i = 0; i < /*number of people in session */; i++) {
+//         if (!/*hasVoted*/) {
+//             allReady = false
+//         }
+//     }
+//     if(allReady = false) {
+//       document.getElementById("Waiting").style.visibility = "visible"
+//     } else {
+//         clearInterval(waitingChecker)
+//     }}
+
+// waitingChecker = setInterval(readinessCheck(), 1000)
