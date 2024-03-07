@@ -286,7 +286,7 @@ article {
     float: right;
 }
 
-#players {
+#players, #average {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
