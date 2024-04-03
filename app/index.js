@@ -58,27 +58,11 @@ function checkConsensus(arrayOfObjects) {
 //         "vote": 2}]
 
 function calculateAverage (arrayOfObjects) {
-    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0)
-    const numOfVotes = arrayOfObjects.length
-    const aveVote = sum / numOfVotes
-    document.getElementById("ave-number").innerHTML = aveVote.toFixed(2)
+    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0);
+    const numOfVotes = arrayOfObjects.length;
+    const aveVote = sum / numOfVotes;
+    document.getElementById("ave-number").innerHTML = aveVote.toFixed(2);
 }
-
-// calculateAverage(votes);
-// document.getElementById('generate-link').addEventListener('click', () => {
-//     console.log("TESTING");
-
-//     var currentUrl = window.location.href;
-
-//     var linkElement = document.createElement('a');
-//     linkElement.href = currentUrl;
-//     linkElement.textContent = 'Share this page'; 
-//     linkElement.setAttribute('target', '_blank');
-
-//     var container = document.getElementById('generate-link');
-//     container.parentNode.replaceChild(linkElement, container);
-   
-// });
 
 //CONTACT US BUTTON FUNCTION
 function openEmailClient() {
@@ -105,24 +89,24 @@ function generateInviteLink() {
 // Generate the invite link when the page is loaded
 window.onload = generateInviteLink;
 
-let counter = 0
+let counter = 0;
 
 socket.on('message', (data) => {
   const colonIndex = data.indexOf(':');
   const un = data.slice(0, colonIndex);
   const num = data.slice(colonIndex + 1);
-  counter++
-  const player = document.createElement('tr')
-  player.setAttribute('id', `player${counter}`)
-  const username = document.createElement('td')
-  username.setAttribute('id', `username-result`)
-  const vote = document.createElement('td')
-  vote.setAttribute('id', `vote-result`)
-  vote.textContent = num
-  username.textContent = un
-  document.getElementById('players').appendChild(player)
-  document.getElementById(`player${counter}`).appendChild(username)
-  document.getElementById(`player${counter}`).appendChild(vote)
+  counter++;
+  const player = document.createElement('tr');
+  player.setAttribute('id', `player${counter}`);
+  const username = document.createElement('td');
+  username.setAttribute('id', `username-result`);
+  const vote = document.createElement('td');
+  vote.setAttribute('id', `vote-result`);
+  vote.textContent = num;
+  username.textContent = un;
+  document.getElementById('players').appendChild(player);
+  document.getElementById(`player${counter}`).appendChild(username);
+  document.getElementById(`player${counter}`).appendChild(vote);
 
   console.log("Received message:", data);
 })
