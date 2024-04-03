@@ -1,110 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planning Poker</title>
+    <meta
+      name="description"
+      content="Planning Poker is a collaborative estimation technique used by Agile teams to estimate the effort required for development tasks. It helps teams reach consensus on task estimates through discussion and anonymous voting."
+    />
+    <link rel="stylesheet" href="index.css" />
+    <!-- Preload Fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap"
+      as="style"
+      crossorigin
+    />
+    <!-- Link Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planning Poker</title>
-  <meta name="description" content="Planning Poker is a collaborative estimation technique used by Agile teams to estimate the effort required for development tasks. It helps teams reach consensus on task estimates through discussion and anonymous voting.">
-  <link rel="stylesheet" href="index.css">
-  <!-- Preload Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" as="style" crossorigin>
-  <!-- Link Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-
-
-<body>
-  <div id="header-container">
-    <header>Planning Poker</header>
-  </div>
-
-  <div id="flex">
-
-    <div class="flex-container">
-
-      <div id="select-header">
-        <header>Select a card</header>
-      </div>
-
-      <div id="card-container">
-        <div id="card1" class="item item1" role="button" onclick="selectCard(this)">1</div>
-        <div id="card2" class="item item2" role="button" onclick="selectCard(this)">2</div>
-        <div id="card3" class="item item3" role="button" onclick="selectCard(this)">3</div>
-        <div id="card5" class="item item4" role="button" onclick="selectCard(this)">5</div>
-        <div id="card8" class="item item5" role="button" onclick="selectCard(this)">8</div>
-        <div id="card13" class="item item6" role="button" onclick="selectCard(this)">13</div>
-        <div id="card21" class="item item7" role="button" onclick="selectCard(this)">21</div>
-        <div id="card34" class="item item8" role="button" onclick="selectCard(this)">34</div>
-        <div id="card55" class="item item9" role="button" onclick="selectCard(this)">55</div>
-      </div>
-
+  <body>
+    <div id="header-container">
+      <header>Planning Poker</header>
     </div>
 
-    <div id="middle-flex">
+    <div id="flex">
+      <div class="flex-container">
+        <div id="select-header">
+          <header>Select a card</header>
+        </div>
 
-      <label for="submit-button"></label>
-      <button id="submit-button" role="button" onclick="submitVote()">Submit</button>
-
-      <div id="invite-link">
-        <label for="game-link">Invite Link:</label>
-        <input type="text" id="game-link" aria-labelledby="game-link-label">
-        <button id="copy-link-button" onclick="copyLinkToClipboard()">Copy Link</button>
+        <div id="card-container">
+          <div
+            id="card1"
+            class="item item1"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            1
+          </div>
+          <div
+            id="card2"
+            class="item item2"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            2
+          </div>
+          <div
+            id="card3"
+            class="item item3"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            3
+          </div>
+          <div
+            id="card5"
+            class="item item4"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            5
+          </div>
+          <div
+            id="card8"
+            class="item item5"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            8
+          </div>
+          <div
+            id="card13"
+            class="item item6"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            13
+          </div>
+          <div
+            id="card21"
+            class="item item7"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            21
+          </div>
+          <div
+            id="card34"
+            class="item item8"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            34
+          </div>
+          <div
+            id="card55"
+            class="item item9"
+            role="button"
+            onclick="selectCard(this)"
+          >
+            55
+          </div>
+        </div>
       </div>
 
+      <div id="middle-flex">
+        <label for="submit-button"></label>
+        <button id="submit-button" role="button" onclick="submitVote()">
+          Submit
+        </button>
 
-    </div>
-
-    <div class="flex-container" id="flex-results">
-
-      <div id="results-header">
-        <header>Results</header>
+        <div id="invite-link">
+          <label for="game-link">Invite Link:</label>
+          <input type="text" id="game-link" aria-labelledby="game-link-label" />
+          <button id="copy-link-button" onclick="copyLinkToClipboard()">
+            Copy Link
+          </button>
+        </div>
       </div>
 
-      <div id="results-container">
+      <div class="flex-container" id="flex-results">
+        <div id="results-header">
+          <header>Results</header>
+        </div>
 
-        <h2>Consensus Reached?</h2>
-        <table id="yes-no">
-          <tr>
-            <th id="yes">Yes</th>
-            <th id="no">No</th>
-          </tr>
-        </table>
-        <table id="name-vote-box">
-          <tr>
-            <th id="vote-name">Name</th>
-            <th id="vote">Vote</th>
-          </tr>
+        <div id="results-container">
+          <h2>Consensus Reached?</h2>
+          <table id="yes-no">
+            <tr>
+              <th id="yes">Yes</th>
+              <th id="no">No</th>
+            </tr>
           </table>
-        <table id="players"></table>
-        <table id="average">
-          <tr>
-            <td id="ave-vote">Average Vote</td>
-            <td id="ave-number">101</td>
-          </tr>
-        </table>
+          <table id="name-vote-box">
+            <tr>
+              <th id="vote-name">Name</th>
+              <th id="vote">Vote</th>
+            </tr>
+          </table>
+          <table id="players"></table>
+          <table id="average">
+            <tr>
+              <td id="ave-vote">Average Vote</td>
+              <td id="ave-number">101</td>
+            </tr>
+          </table>
+        </div>
       </div>
-
     </div>
 
-  </div>
+    <div id="bottom-block"></div>
 
-  <div id="bottom-block">
-
-  </div>
-
-
-  <div id="footer-container">
-    <footer>
-      <div><button id="link-contact" role="button" onclick="openEmailClient()">Contact Us</button></div>
-    </footer>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"
-    integrity="sha512-skuhu6jj+sQnhLq1Txsack8VfnIrX8wL+MTFilYlFFT/NuLJm7eya7zOROs39Jy5cjASMEWqxLzijRVmKhsqWQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="index.js"></script>
-</body>
-
+    <div id="footer-container">
+      <footer>
+        <div>
+          <button id="link-contact" role="button" onclick="openEmailClient()">
+            Contact Us
+          </button>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"
+      integrity="sha512-skuhu6jj+sQnhLq1Txsack8VfnIrX8wL+MTFilYlFFT/NuLJm7eya7zOROs39Jy5cjASMEWqxLzijRVmKhsqWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+  </body>
 </html>
