@@ -5,6 +5,8 @@ body {
   margin: 0px;
   margin-bottom: 35vmin;
   overflow-y: auto;
+  height: 100%;
+  overflow: hidden;
 }
 
 #header-container,

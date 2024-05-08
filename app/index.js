@@ -39,31 +39,6 @@ function setUsername(form) {
     }
 }
 
-function checkConsensus(arrayOfObjects) {
-    const firstVote = arrayOfObjects[0].vote;
-    const consensus = arrayOfObjects.every((object) => object.vote === firstVote);
-    consensus ? document.getElementById("yes").style.color = "green" : document.getElementById("no").style.color = "red";
-    consensus ? document.getElementById("yes").style.border = "3px solid green" : document.getElementById("no").style.border = "3px solid red";
-
-    console.log("Consensus:", consensus); // Debugging: Log consensus value
-
-}
-
-// test data
-// votes = [{"name": "john",
-//             "vote": 13},
-//         {"name": "alex",
-//         "vote": 13},
-//         {"name": "jade",
-//         "vote": 2}]
-
-function calculateAverage (arrayOfObjects) {
-    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0);
-    const numOfVotes = arrayOfObjects.length;
-    const aveVote = sum / numOfVotes;
-    document.getElementById("ave-number").innerHTML = aveVote.toFixed(2);
-}
-
 //CONTACT US BUTTON FUNCTION
 function openEmailClient() {
     var emailAddress = 'andrew.jarrett@axahealth.co.uk, alex.fratiman@axahealth.co.uk, alex.kennedy@axahealth.co.uk';
@@ -107,6 +82,14 @@ socket.on('message', (data) => {
   document.getElementById('players').appendChild(player);
   document.getElementById(`player${counter}`).appendChild(username);
   document.getElementById(`player${counter}`).appendChild(vote);
+//   document.getElementById("ave-number").innerHTML = window.calculateAverage();
+//   if(checkConsensus()){
+//     document.getElementById("yes").style.color = "green";
+//     document.getElementById("yes").style.border = "3px solid green";
+//   } else {
+//     document.getElementById("no").style.color = "red";
+//     document.getElementById("no").style.border = "3px solid red";
+//   };
 
   console.log("Received message:", data);
 })
