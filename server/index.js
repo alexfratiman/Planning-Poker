@@ -1,5 +1,6 @@
-import {createServer} from "http"
-import {Server} from "socket.io"
+import {createServer} from "http";
+import {Server} from "socket.io";
+import mysql from 'mysql';
 
 const httpServer = createServer()
 
@@ -22,3 +23,53 @@ io.on('connection', socket => {
 })
 
 httpServer.listen(3500, () => console.log('listening on port 5500'))
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "ken_man10",
+  // database: "ppdb"
+});
+
+// check if connection works
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
+
+//create the database, ppdb
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   con.query("CREATE DATABASE ppdb", function (err, result) {
+//     if (err) throw err;
+//     console.log("Database created");
+//   });
+// });
+
+
+//uncomment the database par of var con, create sessions table
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   var sql = "CREATE TABLE sessions(sessionID VARCHAR(255), hostuserID VARCHAR(255))";
+//   con.query(sql, function (err, result) {
+//     if (err) throw err;
+//     console.log("Table created");
+//   });
+// });
+
+//create votes table
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   var sql = "CREATE TABLE votes(username VARCHAR(12), sessionID VARCHAR(255), vote VARCHAR(2), hasVoted TINYINT(1))";
+//   con.query(sql, function (err, result) {
+//     if (err) throw err;
+//     console.log("Table created");
+//   });
+// });
