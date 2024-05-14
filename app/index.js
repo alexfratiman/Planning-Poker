@@ -16,7 +16,8 @@ function selectCard(card) {
 
 function submitVote() {
     if(selectedCard !== undefined) {
-        socket.emit('submit vote', {selectedCard: selectedCard});
+        const params = new URL(document.location.toString());
+        socket.emit('submit vote', {selectedCard: selectedCard, username: sessionStorage.getItem("username"), sessionID: params.get("id")});
     }
     else {
         alert("Please select a card to submit!");
