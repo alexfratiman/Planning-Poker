@@ -18,7 +18,9 @@ io.on('connection', socket => {
   })
 
   socket.on('submit vote', data => {
-    io.emit('submit vote', data)
+    con.query(`INSERT INTO votes (username, sessionID, vote, hasVoted) VALUES ('${data.username}', '${data.sessionID}', '${data.selectedCard}', true)`, () => {
+      io.emit('submit vote', data);
+    });
   })
 })
 
@@ -27,16 +29,16 @@ httpServer.listen(3500, () => console.log('listening on port 5500'))
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "ken_man10",
-  // database: "ppdb"
+  password: "admin",
+  database: "ppdb"
 });
 
 // check if connection works
 
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected!");
-// });
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 //create the database, ppdb
 
