@@ -5,7 +5,7 @@ function checkConsensus(arrayOfObjects) {
 }
 
 function calculateAverage (arrayOfObjects) {
-    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + currentValue.vote, 0);
+    const sum = arrayOfObjects.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.vote), 0);
     const numOfVotes = arrayOfObjects.length;
     const aveVote = sum / numOfVotes;
     return aveVote.toFixed(2);

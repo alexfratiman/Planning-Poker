@@ -117,6 +117,7 @@
         <button id="submit-button" role="button" onclick="submitVote()">
           Submit
         </button>
+        <div id="Waiting">Waiting for votes...</div>
 
         <div id="invite-link">
           <label for="game-link">Invite Link:</label>
@@ -140,17 +141,24 @@
               <th id="no">No</th>
             </tr>
           </table>
-          <table id="name-vote-box">
-            <tr>
-              <th id="vote-name">Name</th>
-              <th id="vote">Vote</th>
-            </tr>
+          <div id="name-vote-box">
+            <table id="votes">
+              <thead>
+              <tr>
+                <th id="vote-name">Name</th>
+                <th id="vote">Vote</th>
+              </tr>
+            </thead>
+            <tbody id="players">
+
+            </tbody>
           </table>
-          <table id="players"></table>
+          </div>
+          
           <table id="average">
             <tr>
               <td id="ave-vote">Average Vote</td>
-              <td id="ave-number">101</td>
+              <td id="ave-number">0.00</td>
             </tr>
           </table>
         </div>

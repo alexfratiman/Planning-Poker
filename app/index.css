@@ -229,6 +229,10 @@ article {
   border-color: #00008f;
 }
 
+#Waiting {
+  visibility: none;
+}
+
 .hidden {
   color: #c91432;
   text-align: center;
@@ -295,16 +299,13 @@ article {
   padding: 10px;
 }
 
-#vote-name {
+#vote-name, #players > tr > td:first-child {
   padding-right: 30px;
-  float: left;
 }
-#vote {
+#vote, #players > tr > td:last-child {
   padding-left: 30px;
-  float: right;
 }
 
-#players,
 #average {
   display: flex;
   flex-wrap: nowrap;

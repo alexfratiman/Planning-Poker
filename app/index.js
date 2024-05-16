@@ -11,13 +11,21 @@ function selectCard(card) {
 
     selectedCard = card.innerText;
 
-    socket.emit('message', `${sessionStorage.getItem("username")}:${card.innerText}`);
 }
+
+// track if we have voted to toggle the waiting for players message
+var voted = false;
 
 function submitVote() {
     if(selectedCard !== undefined) {
         const params = new URL(document.location.toString());
-        socket.emit('submit vote', {selectedCard: selectedCard, username: sessionStorage.getItem("username"), sessionID: params.get("id")});
+
+        socket.emit('submit vote', {
+            selectedCard: selectedCard, 
+            username: sessionStorage.getItem("username"), 
+            sessionID: params.searchParams.get("id")
+        });
+        voted = true;
     }
     else {
         alert("Please select a card to submit!");
@@ -36,8 +44,18 @@ function setUsername(form) {
         document.getElementById("usernameError").style.visibility = "visible";
     } else {
         sessionStorage.setItem("username", `${username}`);
-        location.assign("MainPage.html");
+        // Attempt to read the sessionID from the current page URL
+        const params = new URL(document.location.toString());
+        // If there was a sessionID in the URL, you should use it (LinkPage), 
+        // if not, generate one (LandingPage)
+        const sessionID = params.searchParams.has('id') ? params.searchParams.get('id') : generateUniqueID();
+
+        socket.emit('join session', {username: username, sessionID: sessionID });
+        // Redirect to the session page with the sessionID in the URL
+        // So that when the next page loads, we still know which session we joined.
+        location.assign(`MainPage.html?id=${sessionID}`);
     }
+
 }
 
 //CONTACT US BUTTON FUNCTION
@@ -60,40 +78,29 @@ function generateInviteLink() {
     const gameID = generateUniqueID();
     const gameLink = window.location.origin + '/game.html?id=' + gameID;
     document.getElementById('game-link').value = gameLink;
+    
+    //  pull the invite link from URL if already exists on page
+    // 
+    // const params = new URL(document.location.toString());
+    // document.getElementById('game-link').value = `${window.location.origin}/app/LinkPage.html?id=${params.searchParams.get('id')}`;
 }
 
-// Generate the invite link when the page is loaded
 window.onload = generateInviteLink;
+
+//participants will be an array of objects, with each object representing a user's username and sessionID
+var participants = [];
+
+socket.on('vote complete', (data) => {
+    // Vote complete is sent when the server sees that all 
+    // participants have submitted their votes.
+    // 
+    console.log('vote complete', data);
+    participants = data;
+});
+
 
 let counter = 0;
 
-socket.on('message', (data) => {
-  const colonIndex = data.indexOf(':');
-  const un = data.slice(0, colonIndex);
-  const num = data.slice(colonIndex + 1);
-  counter++;
-  const player = document.createElement('tr');
-  player.setAttribute('id', `player${counter}`);
-  const username = document.createElement('td');
-  username.setAttribute('id', `username-result`);
-  const vote = document.createElement('td');
-  vote.setAttribute('id', `vote-result`);
-  vote.textContent = num;
-  username.textContent = un;
-  document.getElementById('players').appendChild(player);
-  document.getElementById(`player${counter}`).appendChild(username);
-  document.getElementById(`player${counter}`).appendChild(vote);
-//   document.getElementById("ave-number").innerHTML = window.calculateAverage();
-//   if(checkConsensus()){
-//     document.getElementById("yes").style.color = "green";
-//     document.getElementById("yes").style.border = "3px solid green";
-//   } else {
-//     document.getElementById("no").style.color = "red";
-//     document.getElementById("no").style.border = "3px solid red";
-//   };
-
-  console.log("Received message:", data);
-})
 
 // COPY INVITE LINK FUNCTION
 function copyLinkToClipboard() {
@@ -105,20 +112,53 @@ function copyLinkToClipboard() {
     console.log("Link copied to clipboard:", inputElement.value);
 }
 
-//Waiting for players -- to be contained within submit button js
-//let allReady = true
-//let checking = true
+// Waiting for players -- to be contained within submit button js
+let allReady = true
+let checking = true
 
-// function readinessCheck() {
-//     for (let i = 0; i < /*number of people in session */; i++) {
-//         if (!/*hasVoted*/) {
-//             allReady = false
-//         }
-//     }
-//     if(allReady = false) {
-//       document.getElementById("Waiting").style.visibility = "visible"
-//     } else {
-//         clearInterval(waitingChecker)
-//     }}
+var waitingChecker = null;
 
-// waitingChecker = setInterval(readinessCheck(), 1000)
+function readinessCheck() {
+    console.log('readinessCheck');
+    if (!voted) {
+        return;
+    }
+    else if (!participants.length) {
+        // we've voted but haven't received vote completed event.
+        document.getElementById("Waiting").style.visibility = "visible";
+    } else {
+        // clearInterval(waitingChecker)
+        // not clearing interval allows re-voting.
+        document.getElementById("ave-number").innerHTML = window.calculateAverage(participants);
+        if(window.checkConsensus(participants)){
+            document.getElementById("yes").style.color = "green";
+            document.getElementById("yes").style.border = "3px solid green";
+            document.getElementById("no").style.color = "grey";
+            document.getElementById("no").style.border = "3px solid #d9d9d9";
+        } else {
+            document.getElementById("yes").style.color = "grey";
+            document.getElementById("yes").style.border = "3px solid #d9d9d9";
+            document.getElementById("no").style.color = "red";
+            document.getElementById("no").style.border = "3px solid red";
+        };
+
+        participants.sort((participantA, participantB) => {
+            return participantA.vote - participantB.vote;
+        });
+
+        document.getElementById('players').innerHTML = '';
+        for(let i=0; i<participants.length; i++) {
+            const row = document.createElement('tr');
+            const username = document.createElement('td');
+            const vote = document.createElement('td');
+            vote.textContent = participants[i].vote;
+            username.textContent = participants[i].username;
+            row.appendChild(username);
+            row.appendChild(vote);
+            document.getElementById('players').appendChild(row);
+        }
+
+
+    }}
+
+waitingChecker = setInterval(readinessCheck, 1000)
