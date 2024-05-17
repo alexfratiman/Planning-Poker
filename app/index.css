@@ -4,8 +4,10 @@ body {
   font-family: "Source Sans 3", sans-serif;
   margin: 0px;
   margin-bottom: 35vmin;
-  overflow-y: auto;
   height: 100%;
+}
+
+#link-land-body {
   overflow: hidden;
 }
 
@@ -34,6 +36,7 @@ body {
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
+  clear: both;
 }
 
 #contact,
@@ -363,5 +366,8 @@ article {
   }
   #bottom-block {
     height: 50px;
+  }
+  #link-about {
+    padding-bottom: 50px;
   }
 }
