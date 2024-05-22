@@ -367,7 +367,45 @@ article {
   #bottom-block {
     height: 50px;
   }
-  #link-about {
-    padding-bottom: 50px;
+  #link-about,
+  #about {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+  #about, 
+  #link-about {
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+
+}
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  #about, 
+  #link-about {
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+  #about, 
+  #link-about {
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+
+}
+
+@media screen and (max-width: 575.98px) {
+  #about, 
+  #link-about {
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+}
+
+
