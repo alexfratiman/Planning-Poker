@@ -112,53 +112,38 @@ function copyLinkToClipboard() {
     console.log("Link copied to clipboard:", inputElement.value);
 }
 
-// Waiting for players -- to be contained within submit button js
-let allReady = true
-let checking = true
-
-var waitingChecker = null;
-
-function readinessCheck() {
-    console.log('readinessCheck');
-    if (!voted) {
-        return;
-    }
-    else if (!participants.length) {
-        // we've voted but haven't received vote completed event.
-        document.getElementById("Waiting").style.visibility = "visible";
+socket.on('vote received', () =>{
+    document.getElementById("Waiting").style.visibility = "visible";
+  });
+  
+  socket.on('vote complete', () =>{
+    document.getElementById("Waiting").style.visibility = "hidden";
+    document.getElementById("ave-number").innerHTML = window.calculateAverage(participants);
+    if(window.checkConsensus(participants)){
+        document.getElementById("yes").style.color = "green";
+        document.getElementById("yes").style.border = "3px solid green";
+        document.getElementById("no").style.color = "grey";
+        document.getElementById("no").style.border = "3px solid #d9d9d9";
     } else {
-        // clearInterval(waitingChecker)
-        // not clearing interval allows re-voting.
-        document.getElementById("ave-number").innerHTML = window.calculateAverage(participants);
-        if(window.checkConsensus(participants)){
-            document.getElementById("yes").style.color = "green";
-            document.getElementById("yes").style.border = "3px solid green";
-            document.getElementById("no").style.color = "grey";
-            document.getElementById("no").style.border = "3px solid #d9d9d9";
-        } else {
-            document.getElementById("yes").style.color = "grey";
-            document.getElementById("yes").style.border = "3px solid #d9d9d9";
-            document.getElementById("no").style.color = "red";
-            document.getElementById("no").style.border = "3px solid red";
-        };
+        document.getElementById("yes").style.color = "grey";
+        document.getElementById("yes").style.border = "3px solid #d9d9d9";
+        document.getElementById("no").style.color = "red";
+        document.getElementById("no").style.border = "3px solid red";
+    };
 
-        participants.sort((participantA, participantB) => {
-            return participantA.vote - participantB.vote;
-        });
+participants.sort((participantA, participantB) => {
+    return participantA.vote - participantB.vote;
+});
 
-        document.getElementById('players').innerHTML = '';
-        for(let i=0; i<participants.length; i++) {
-            const row = document.createElement('tr');
-            const username = document.createElement('td');
-            const vote = document.createElement('td');
-            vote.textContent = participants[i].vote;
-            username.textContent = participants[i].username;
-            row.appendChild(username);
-            row.appendChild(vote);
-            document.getElementById('players').appendChild(row);
-        }
-
-
-    }}
-
-waitingChecker = setInterval(readinessCheck, 1000)
+document.getElementById('players').innerHTML = '';
+for(let i=0; i<participants.length; i++) {
+    const row = document.createElement('tr');
+    const username = document.createElement('td');
+    const vote = document.createElement('td');
+    vote.textContent = participants[i].vote;
+    username.textContent = participants[i].username;
+    row.appendChild(username);
+    row.appendChild(vote);
+    document.getElementById('players').appendChild(row);
+}
+  });
