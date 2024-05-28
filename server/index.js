@@ -15,6 +15,10 @@ io.on('connection', socket => {
 
   socket.on('submit vote', data => {
     console.log('vote received', data);
+    socket.emit('vote received')
+    // When the user votes, display the "waiting for players" sign
+    //
+
     // When a vote is received, update the database record for this user.
     // 
     con.query(`UPDATE votes SET vote = ${data.selectedCard}, hasVoted = true WHERE username = '${data.username}' AND sessionID = '${data.sessionID}'`, (err, result) => {

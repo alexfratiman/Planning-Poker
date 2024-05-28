@@ -233,7 +233,7 @@ article {
 }
 
 #Waiting {
-  visibility: none;
+  visibility: hidden;
 }
 
 .hidden {
