@@ -75,14 +75,10 @@ function generateUniqueID() {
 
 // Function to generate and display the invite link
 function generateInviteLink() {
-    const gameID = generateUniqueID();
-    const gameLink = window.location.origin + '/game.html?id=' + gameID;
-    document.getElementById('game-link').value = gameLink;
-    
     //  pull the invite link from URL if already exists on page
-    // 
-    // const params = new URL(document.location.toString());
-    // document.getElementById('game-link').value = `${window.location.origin}/app/LinkPage.html?id=${params.searchParams.get('id')}`;
+    
+    const params = new URL(document.location.toString());
+    document.getElementById('game-link').value = `${window.location.origin}/app/LinkPage.html?id=${params.searchParams.get('id')}`;
 }
 
 window.onload = generateInviteLink;
