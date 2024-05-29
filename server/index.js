@@ -64,8 +64,8 @@ httpServer.listen(3500, () => console.log('listening on port 5500'))
 
 var con = mysql.createConnection({
   host: "localhost",
-  user: "Alex",
-  password: "ken_man10",
+  user: "root",
+  password: "admin",
   database: "ppdb"
 });
 
