@@ -17,7 +17,7 @@ function selectCard(card) {
 var voted = false;
 
 function submitVote() {
-    if(selectedCard !== undefined) {
+    if (selectedCard !== undefined) {
         const params = new URL(document.location.toString());
 
         socket.emit('submit vote', {
@@ -25,12 +25,33 @@ function submitVote() {
             username: sessionStorage.getItem("username"), 
             sessionID: params.searchParams.get("id")
         });
-        voted = true;
+
     }
     else {
         alert("Please select a card to submit!");
-    }
-}
+    };
+};
+
+socket.on("coffee", (data) => {
+    document.getElementById('players').innerHTML = '';
+        const row = document.createElement('tr');
+        const username = document.createElement('td');
+        const vote = document.createElement('td');
+        vote.textContent = "☕";
+        username.textContent = data.username;
+        row.appendChild(username);
+        row.appendChild(vote);
+        document.getElementById('players').appendChild(row);
+});
+
+socket.on("Reset", () => {
+    document.getElementById('players').innerHTML = "";
+    document.getElementById("yes").style.color = "grey";
+    document.getElementById("yes").style.border = "3px solid #d9d9d9";
+    document.getElementById("no").style.color = "grey";
+    document.getElementById("no").style.border = "3px solid #d9d9d9";
+    document.getElementById("ave-number").innerHTML = "0.00";
+});
 
 function setUsername(form) {
     let username = document.getElementById('name').value;
