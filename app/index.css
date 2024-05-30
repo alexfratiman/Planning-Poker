@@ -357,9 +357,9 @@ article {
   .flex-container,
   #middle-flex {
     width: 100%;
-  }
-  #middle-flex {
-    margin-bottom: 25vmin;
+    height: 15vmin;
+    margin-bottom: 35vmin;
+    margin-top: 20vmin;
   }
   #results-container {
     white-space: pre;

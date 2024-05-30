@@ -15,28 +15,36 @@ io.on('connection', socket => {
 
   socket.on('submit vote', data => {
     console.log('vote received', data);
-    socket.emit('vote received')
-    // When the user votes, display the "waiting for players" sign
-    //
-
-    // When a vote is received, update the database record for this user.
-    // 
-    con.query(`UPDATE votes SET vote = ${data.selectedCard}, hasVoted = true WHERE username = '${data.username}' AND sessionID = '${data.sessionID}'`, (err, result) => {
-      console.log(err, result);
-      // When each vote is recorded, let's check if all the votes have 
-      // now been submitted in the session. 
-      // 
-      con.query(`SELECT * FROM votes WHERE sessionID='${data.sessionID}'`, (err, participants) => {
-        console.log('vote status', participants);
-        // Is p.hasVoted true for every participant in the session?
-        if (participants.every((p) => p.hasVoted)) {
-          console.log('vote complete');
-          io.emit('vote complete', participants);
-        } else {
-          console.log('votes pending');
-        }
+    if (data.selectedCard == "☕") {
+      io.emit("coffee", {
+        username: data.username
       });
-    });
+    } else if (data.selectedCard == "Reset") {
+      con.query(`UPDATE votes SET hasvoted = false WHERE sessionID = '${data.sessionID}'`)
+      io.emit("Reset");
+    } else {
+      socket.emit('vote received')
+      // When the user votes, display the "waiting for players" sign
+      //
+      // When a vote is received, update the database record for this user.
+      // 
+      con.query(`UPDATE votes SET vote = ${data.selectedCard}, hasVoted = true WHERE username = '${data.username}' AND sessionID = '${data.sessionID}'`, (err, result) => {
+        console.log(err, result);
+        // When each vote is recorded, let's check if all the votes have 
+        // now been submitted in the session. 
+        // 
+        con.query(`SELECT * FROM votes WHERE sessionID='${data.sessionID}'`, (err, participants) => {
+          console.log('vote status', participants);
+          // Is p.hasVoted true for every participant in the session?
+          if (participants.every((p) => p.hasVoted)) {
+            console.log('vote complete');
+            io.emit('vote complete', participants);
+          } else {
+            console.log('votes pending');
+          }
+        });
+      });
+    };
   });
 
   // you join a session, we write to the database
